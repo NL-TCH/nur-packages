@@ -52,7 +52,7 @@ let
     zlib
   ];
 in
-  pkgs.spotify.overrideAttrs (prev: {
+  spotify.overrideAttrs (prev: {
     installPhase = ''
       runHook preInstall
 
