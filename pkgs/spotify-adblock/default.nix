@@ -1,4 +1,4 @@
-{rustPlatform, fetchFromGitHub,stdenv,xorg}:
+{rustPlatform, fetchFromGitHub, stdenv, xorg, callPackage }:
 {
   # this compiles the libspotifyadblock.so from the official github repo 
   spotify-adblock2 = rustPlatform.buildRustPackage {
@@ -14,7 +14,9 @@
     cargoSha256 = "bYqkCooBfGeHZHl2/9Om+0qbudyOCzpvwMhy8QCsPRE=";
   };
 
-
+  spotify-adblocked = callPackage ./spotify-adblocked.nix {
+    inherit spotify-adblock spotifywm;
+  };
 
   spotifywm = stdenv.mkDerivation {
     name = "spotifywm";
