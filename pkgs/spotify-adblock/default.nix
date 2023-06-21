@@ -1,13 +1,10 @@
-
-let
-  pkgs = import <nixpkgs> {};
-in
+{rustPlatform, fetchFromGitHub,stdenv,xorg}
 {
   # this compiles the libspotifyadblock.so from the official github repo 
-  spotify-adblock2 = pkgs.rustPlatform.buildRustPackage {
+  spotify-adblock2 = rustPlatform.buildRustPackage {
     pname = "spotify-adblock";
     version = "1.0.2";
-    src = pkgs.fetchFromGitHub {
+    src = fetchFromGitHub {
       owner = "abba23";
       repo = "spotify-adblock";
       rev = "v1.0.2";
@@ -19,15 +16,15 @@ in
 
 
 
-  spotifywm = pkgs.stdenv.mkDerivation {
+  spotifywm = stdenv.mkDerivation {
     name = "spotifywm";
-    src = pkgs.fetchFromGitHub {
+    src = fetchFromGitHub {
       owner = "dasj";
       repo = "spotifywm";
       rev = "8624f539549973c124ed18753881045968881745";
       sha256 = "sha256-AsXqcoqUXUFxTG+G+31lm45gjP6qGohEnUSUtKypew0=";
     };
-    buildInputs = [pkgs.xorg.libX11];
+    buildInputs = [xorg.libX11];
     installPhase = ''
       mkdir -p $out/lib
       cp spotifywm.so $out/lib/
