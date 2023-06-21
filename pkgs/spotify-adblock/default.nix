@@ -1,4 +1,4 @@
-{rustPlatform, fetchFromGitHub,stdenv,xorg}
+{rustPlatform, fetchFromGitHub,stdenv,xorg}:
 {
   # this compiles the libspotifyadblock.so from the official github repo 
   spotify-adblock2 = rustPlatform.buildRustPackage {
