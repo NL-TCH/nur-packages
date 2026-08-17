@@ -2,7 +2,7 @@
 ## packages in repository:
 
 1. spotify-adblock
-using https://github.com/abba23/spotify-adblock and https://github.com/dasJ/spotifywm/
+using https://github.com/abba23/spotify-adblock
 Listen to spotify without banner ads and interupting audio ads
 2. ciscoPacketTracer8
 This version of packettracer8 automatically installs the required .deb from GitLFS, instead of the slow public link.
